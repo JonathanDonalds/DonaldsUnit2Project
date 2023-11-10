@@ -28,7 +28,7 @@ public class LinearEquation {
     }
 
     public String coordinateForX(double x) {
-        return "0";
+        return slope() * x + yIntercept();
     }
 
     public String lineInfo() {
