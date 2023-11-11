@@ -19,15 +19,12 @@ public class LinearEquationLogic {
             LinearEquation object = new LinearEquation(Integer.parseInt(coordinate1.substring(1, 3)), Integer.parseInt(coordinate1.substring(5, 6)), Integer.parseInt(coordinate2.substring(1, 2)), Integer.parseInt(coordinate2.substring(4, 6)));
             System.out.println(object.lineInfo());
             System.out.print("Enter a value for x: ");
-            String x = scan.nextLine();
+            double x = scan.nextDouble();
             System.out.println();
-            System.out.println("The point on the line is ");
+            System.out.println("The point on the line is " + object.coordinateForX(x));
             System.out.println();
             System.out.print("Would you like to enter another pair of coordinates? y/n: ");
             String yesNoString = scan.nextLine();
-            if (yesNoString.equals("n")) {
-                yesNoBoolean = false;
-            }
         }
     }
 }

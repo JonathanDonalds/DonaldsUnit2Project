@@ -12,7 +12,7 @@ public class LinearEquation {
     }
 
     public double distance() {
-        return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+        return roundedToHundredth(Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
 
     public double yIntercept() {
@@ -24,11 +24,15 @@ public class LinearEquation {
     }
 
     public String equation() {
-        return "y = " + slope() + ("x + " + yIntercept());
+        if (slope() % 1 == 0) {
+            return "y = " + slope() + ("x + " + yIntercept());
+        } else {
+            return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+        }
     }
 
     public String coordinateForX(double x) {
-        return slope() * x + yIntercept();
+        return "(" + x + ", " + String.valueOf(slope() * x + yIntercept()) + ")";
     }
 
     public String lineInfo() {
@@ -36,6 +40,6 @@ public class LinearEquation {
     }
 
     private double roundedToHundredth(double toRound) {
-      return 0;
+      return Math.round(toRound * 100) / 100.0;
     }
 }
