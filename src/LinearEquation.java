@@ -45,7 +45,7 @@ public class LinearEquation {
     }
 
     public String lineInfo() {
-        return "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\n" + "The equation of the line between these points is: " + equation() + "\n" + "The slope of the line between these points is: " + slope() + "\n" + "The y-intercept of the line: " + yIntercept() + "\n" + "The distance between the two points is: " + distance() + "\n";
+        return "The two points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\n" + "The equation of the line between these points is: " + equation() + "\n" + "The slope of the line between these points is: " + slope() + "\n" + "The y-intercept of the line: " + yIntercept() + "\n" + "The distance between the two points is: " + distance();
     }
 
     private double roundedToHundredth(double toRound) {

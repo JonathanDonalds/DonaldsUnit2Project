@@ -27,6 +27,7 @@ public class LinearEquationLogic {
                 System.out.println("These points are on a vertical line: x = " + x1);
             } else {
                 System.out.println(object.lineInfo());
+                System.out.println();
                 System.out.print("Enter a value for x: ");
                 double x = scan.nextDouble();
                 scan.nextLine();
