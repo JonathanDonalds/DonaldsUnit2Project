@@ -25,9 +25,18 @@ public class LinearEquation {
 
     public String equation() {
         if (slope() % 1 == 0) {
-            return "y = " + slope() + ("x + " + yIntercept());
+            if (yIntercept() < 0) {
+                return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
+            }
+            else {
+                return "y = " + (int) slope() + ("x + " + yIntercept());
+            }
         } else {
-            return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+            if (yIntercept() < 0) {
+                return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x - " + Math.abs(yIntercept()));
+            } else {
+                return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+            }
         }
     }
 
