@@ -8,10 +8,10 @@ public class LinearEquationLogic {
 
     private void welcome() {
         System.out.println("Welcome to the linear equation calculator!");
-        getCoordinates();
+        CoordinatesAndInfo();
     }
 
-    private void getCoordinates() {
+    private void CoordinatesAndInfo() {
         boolean yesNoBoolean = true;
         while (yesNoBoolean) {
             Scanner scan = new Scanner(System.in);

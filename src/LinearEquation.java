@@ -2,8 +2,9 @@ public class LinearEquation {
 
     private int x1;
     private int y1;
-    private int x2 ;
+    private int x2;
     private int y2;
+
     public LinearEquation(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
         this.y1 = y1;
@@ -76,7 +77,7 @@ public class LinearEquation {
     }
 
     public String coordinateForX(double x) {
-        return "(" + x + ", " + String.valueOf(slope() * x + yIntercept()) + ")";
+        return "(" + x + ", " + (slope() * x + yIntercept()) + ")";
     }
 
     public String lineInfo() {
