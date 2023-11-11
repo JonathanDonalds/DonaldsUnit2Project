@@ -16,15 +16,25 @@ public class LinearEquationLogic {
             System.out.print("Enter coordinate 2: ");
             String coordinate2 = scan.nextLine();
             System.out.println();
-            LinearEquation object = new LinearEquation(Integer.parseInt(coordinate1.substring(1, 3)), Integer.parseInt(coordinate1.substring(5, 6)), Integer.parseInt(coordinate2.substring(1, 2)), Integer.parseInt(coordinate2.substring(4, 6)));
+            coordinate1 = coordinate1.substring(1, coordinate1.indexOf(",")) + coordinate1.substring(coordinate1.indexOf(",") + 1, coordinate1.length() - 1);
+            coordinate2 = coordinate2.substring(1, coordinate2.indexOf(",")) + coordinate2.substring(coordinate2.indexOf(",") + 1, coordinate2.length() - 1);
+            int x1 = Integer.parseInt(coordinate1.substring(0, coordinate1.indexOf(" ")));
+            int y1 = Integer.parseInt(coordinate1.substring(coordinate1.indexOf(" ") + 1));
+            int x2 = Integer.parseInt(coordinate2.substring(0, coordinate2.indexOf(" ")));
+            int y2 = Integer.parseInt(coordinate2.substring(coordinate2.indexOf(" ") + 1));
+            LinearEquation object = new LinearEquation(x1, y1, x2, y2);
             System.out.println(object.lineInfo());
             System.out.print("Enter a value for x: ");
             double x = scan.nextDouble();
+            scan.nextLine();
             System.out.println();
             System.out.println("The point on the line is " + object.coordinateForX(x));
             System.out.println();
             System.out.print("Would you like to enter another pair of coordinates? y/n: ");
             String yesNoString = scan.nextLine();
+            if (yesNoString.equals("n")) {
+                yesNoBoolean = false;
+            }
         }
     }
 }
