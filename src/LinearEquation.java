@@ -1,9 +1,9 @@
 public class LinearEquation {
 
-    private int x1 = 0;
-    private int y1 = 0;
-    private int x2 = 0;
-    private int y2 = 0 ;
+    private int x1;
+    private int y1;
+    private int x2 ;
+    private int y2;
     public LinearEquation(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
         this.y1 = y1;
@@ -25,7 +25,9 @@ public class LinearEquation {
 
     public String equation() {
         if (slope() % 1 == 0) {
-            if (yIntercept() < 0) {
+            if (y1 == y2) {
+                return "y = " + yIntercept();
+            } else if (yIntercept() < 0) {
                 return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
             }
             else {
