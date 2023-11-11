@@ -50,14 +50,23 @@ public class LinearEquation {
         } else {
             if (yIntercept() < 0) {
                 if (x2 - x1 < 0) {
-                    return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                    if (y2 - y1 < 0) {
+                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                    } else {
+                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                    }
                 }
                 else {
                     return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
                 }
             } else {
                 if (x2 - x1 < 0) {
-                    return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                    if (y2 - y1 < 0) {
+                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                    }
+                    else {
+                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                    }
                 }
                 else {
                     return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
