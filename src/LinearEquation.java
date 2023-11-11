@@ -30,7 +30,12 @@ public class LinearEquation {
                 if (yIntercept() < 0) {
                     return "y = x - " + Math.abs(yIntercept());
                 } else {
-                    return "y = x + " + yIntercept();
+                    if (yIntercept() == 0) {
+                        return "y = x";
+                    }
+                    else {
+                        return "y = x + " + yIntercept();
+                    }
                 }
             }
             if (slope() == -1.0) {
