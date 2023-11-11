@@ -46,7 +46,7 @@ public class LinearEquation {
                 }
             }
             if (y1 == y2) {
-                return "y = " + yIntercept();
+                return "y = " + (int) yIntercept();
             } else if (yIntercept() < 0) {
                 return "y = " + (int) slope() + "x - " + Math.abs(yIntercept());
             }

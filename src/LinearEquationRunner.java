@@ -2,10 +2,10 @@ public class LinearEquationRunner {
     public static void main(String[] args) {
         /*LinearEquationLogic unit2Project = new LinearEquationLogic();
         unit2Project.start();*/
-        int x1 = -2;
+        int x1 = 16;
         int y1 = -2;
-        int x2 = 4;
-        int y2 = 4;
+        int x2 = 3;
+        int y2 = -2;
         LinearEquation equation = new LinearEquation(x1, y1, x2, y2);
         System.out.println("Equation: " + equation.equation());
         System.out.println("Slope: " + equation.slope());
