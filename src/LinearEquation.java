@@ -24,7 +24,24 @@ public class LinearEquation {
     }
 
     public String equation() {
+        if (yIntercept() == 0) {
+            return "y = " + (int) slope();
+        }
         if (slope() % 1 == 0) {
+            if (slope() == 1) {
+                if (yIntercept() < 0) {
+                    return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
+                } else {
+                    return "y = x - " + Math.abs(yIntercept());
+                }
+            }
+            if (slope() == -1) {
+                if (yIntercept() < 0) {
+                    return "y = -x - " + Math.abs(yIntercept());
+                } else {
+                    return "y = -x + " + yIntercept();
+                }
+            }
             if (y1 == y2) {
                 return "y = " + yIntercept();
             } else if (yIntercept() < 0) {
