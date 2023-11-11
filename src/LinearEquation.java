@@ -43,41 +43,51 @@ public class LinearEquation {
             if (y1 == y2) {
                 return "y = " + yIntercept();
             } else if (yIntercept() < 0) {
-                return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
+                return "y = " + (int) slope() + "x - " + Math.abs(yIntercept());
             }
             else {
-                return "y = " + (int) slope() + ("x + " + yIntercept());
+                if (yIntercept() == 0) {
+                    return "y = " + (int) slope() + "x";
+                }
+                else {
+                    return "y = " + (int) slope() + "x + " + yIntercept();
+                }
             }
         } else {
             if (yIntercept() < 0) {
                 if (x2 - x1 < 0) {
                     if (y2 - y1 < 0) {
-                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + "x - " + Math.abs(yIntercept());
                     } else {
-                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x - " + Math.abs(yIntercept());
                     }
                 }
                 else {
-                    return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
+                    return "y = " + (y2 - y1) + "/" + (x2 - x1) + "x - " + Math.abs(yIntercept());
                 }
             } else {
                 if (x2 - x1 < 0) {
                     if (y2 - y1 < 0) {
-                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                        return "y = " + Math.abs(y2 - y1) + "/" + Math.abs(x2 - x1) + "x + " + yIntercept();
                     }
                     else {
-                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                        return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + "x + " + yIntercept();
                     }
                 }
                 else {
-                    return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+                    if (yIntercept() == 0) {
+                        return "y = " + (y2 - y1) + "/" + (x2 - x1) + "x";
+                    }
+                    else {
+                        return "y = " + (y2 - y1) + "/" + (x2 - x1) + "x + " + yIntercept();
+                    }
                 }
             }
         }
     }
 
     public String coordinateForX(double x) {
-        return "(" + x + ", " + (slope() * x + yIntercept()) + ")";
+        return "(" + x + ", " + roundedToHundredth(slope() * x + yIntercept()) + ")";
     }
 
     public String lineInfo() {
