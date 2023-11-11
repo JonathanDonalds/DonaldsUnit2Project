@@ -16,26 +16,23 @@ public class LinearEquation {
     }
 
     public double yIntercept() {
-        return y1 - slope() * x1;
+        return roundedToHundredth(y1 - slope() * x1);
     }
 
     public double slope() {
-        return (double) (y2 - y1) / (x2 - x1);
+        return roundedToHundredth((double) (y2 - y1) / (x2 - x1));
     }
 
-    public String equation() {
-        if (yIntercept() == 0) {
-            return "y = " + (int) slope();
-        }
+ public String equation() {
         if (slope() % 1 == 0) {
-            if (slope() == 1) {
+            if (slope() == 1.0) {
                 if (yIntercept() < 0) {
-                    return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
-                } else {
                     return "y = x - " + Math.abs(yIntercept());
+                } else {
+                    return "y = x + " + yIntercept();
                 }
             }
-            if (slope() == -1) {
+            if (slope() == -1.0) {
                 if (yIntercept() < 0) {
                     return "y = -x - " + Math.abs(yIntercept());
                 } else {
@@ -52,9 +49,19 @@ public class LinearEquation {
             }
         } else {
             if (yIntercept() < 0) {
-                return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                if (x2 - x1 < 0) {
+                    return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x - " + Math.abs(yIntercept()));
+                }
+                else {
+                    return "y = " + (int) slope() + ("x - " + Math.abs(yIntercept()));
+                }
             } else {
-                return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+                if (x2 - x1 < 0) {
+                    return "y = -" + (y2 - y1) + "/" + Math.abs(x2 - x1) + ("x + " + yIntercept());
+                }
+                else {
+                    return "y = " + (y2 - y1) + "/" + (x2 - x1) + ("x + " + yIntercept());
+                }
             }
         }
     }
